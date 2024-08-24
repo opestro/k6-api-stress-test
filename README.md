@@ -16,28 +16,23 @@ To get started with the K6 stress tests, clone this repository to your local mac
 ```bash
 git clone https://github.com/yourusername/k6-stress-tests.git
 cd k6-stress-tests
+```
+## Running the Test
 
-## Running the Tests
-
-Each test stage is defined with a different number of VUs. To run a specific test stage, use the following command:
+Each test stage is defined with a different number of VUs. To start all the stages and test, use the following command:
 
 ```bash
-k6 run stage_X_vus_test.js
+chmod +x run_k6_test.sh
+./run_k6_test.sh
 ```
 
-Replace `X` with the number of VUs you want to test (e.g., 20, 100, 500, 1000, or 5000).
+### Important 🖐:
+Inside each stage's `.js` file, you need to replace the placeholder with your API URL and ensure the correct HTTP method (POST or GET) is specified.
 
-## Generating Reports
+## Generating Reports 📊
 
-After running the tests, you can generate a report with simplified data using the `stats-generator.py` script. This script processes the JSON output files from each stage and compiles the results into a Word document.
-
-To generate the report, run:
-
-```bash
-python3 stats-generator.py
-```
-
-The script will create a Word document named `da3em_Stress_Test_Report_Combined.docx` in the root directory of the project, containing the essential metrics for each stage.
+After running the test, it will generate a report with simplified data using the `stats-generator.py` script. This script processes the JSON output files from each stage and compiles the results into a Word document.
+And the script will create a Word document named `da3em_Stress_Test_Report_Combined.docx` in the root directory of the project, containing the essential metrics for each stage.
 
 ## Requirements
 
@@ -58,4 +53,3 @@ If you have any questions, suggestions, or collaboration ideas, feel free to rea
 📧 **Email**: [mehdi.h@nestgit.com](mailto:mehdi.h@nestgit.com)
 
 Happy testing! 🎉
-```

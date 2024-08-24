@@ -23,18 +23,18 @@ def extract_metrics(filename):
                     if metric_type:
                         if metric_type == 'http_reqs':
                             # Add debug information
-                            print(f"Processing http_reqs: {data}")
+                            # print(f"Processing http_reqs: {data}")
                             value = data['data'].get('value', 0)
                             metrics['http_reqs']['count'] += value
                         elif metric_type == 'http_req_duration':
                             # Add debug information
-                            print(f"Processing http_req_duration: {data}")
+                            # print(f"Processing http_req_duration: {data}")
                             value = data['data'].get('value', 0)
                             if value > metrics['http_req_duration']['max']:
                                 metrics['http_req_duration']['max'] = value
                         elif metric_type == 'http_req_failed':
                             # Add debug information
-                            print(f"Processing http_req_failed: {data}")
+                            # print(f"Processing http_req_failed: {data}")
                             value = data['data'].get('value', 0)
                             metrics['http_req_failed']['fails'] += value
                     
@@ -53,7 +53,7 @@ def extract_metrics(filename):
 
 # Create a new Word document
 doc = Document()
-doc.add_heading('K6 Stress Test Report', 0)
+doc.add_heading('Da3em Stress Test Report', 0)
 
 # Add a summary section
 doc.add_heading('Test Summary', level=1)
@@ -71,7 +71,8 @@ stages = [
     ('20 VUs', 'stage_20_vus_output.json'),
     ('100 VUs', 'stage_100_vus_output.json'),
     ('500 VUs', 'stage_500_vus_output.json'),
-    ('1000 VUs', 'stage_1000_vus_output.json')
+    ('1000 VUs', 'stage_1000_vus_output.json'),
+    ('5000 VUs', 'stage_5000_vus_output.json')
 ]
 
 for stage_name, file_name in stages:
@@ -86,7 +87,7 @@ for stage_name, file_name in stages:
 
 # Add a section for more details if needed
 doc.add_heading('Details', level=1)
-doc.add_paragraph('This report includes the essential metrics from the K6 stress test for each stage of the test.')
+doc.add_paragraph('This report includes the essential metrics from the Da3em K6 stress test for each stage of the test.')
 
 # Save the document to a file
 doc.save('da3em_Stress_Test_Report_Combined.docx')

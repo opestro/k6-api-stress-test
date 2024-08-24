@@ -3,11 +3,11 @@ import { check } from 'k6';
 
 export let options = {
   stages: [
-    { duration: '10s', target: 1000 },
+    { duration: '5s', target: 1000 },
   ],
 };
 
 export default function () {
-  let res = http.post('https://da3em.net/api/v1/customer/actions/get_top_shops_and_favorite_shops-action?userId=35');
+  let res = http.post('https://yourdomainname.com/api');
   check(res, { 'status is 200': (r) => r.status === 200 });
 }

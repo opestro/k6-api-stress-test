@@ -1,13 +1,10 @@
 #!/bin/bash
 
-# Run the K6 test and capture output in memory
-k6 run --out json=summary.json da3em.js
+# Run K6 scripts for each stage
+k6 run --out json=stage_20_vus_output.json stage_20_vus.js
+k6 run --out json=stage_100_vus_output.json stage_100_vus.js
+k6 run --out json=stage_500_vus_output.json stage_500_vus.js
+k6 run --out json=stage_1000_vus_output.json stage_1000_vus.js
 
-# Generate the DOC report using Python, reading from the JSON file
-python3 stats-generator.py < summary.json > da3em_Stress_Test_Report.docx
-
-# Clean up the intermediate JSON file
-rm summary.json
-
-# Output the location of the DOC report
-echo "Report generated: $(pwd)/da3em_Stress_Test_Report.docx"
+# Generate the report
+python3 stats-generator.py

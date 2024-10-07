@@ -90,4 +90,4 @@ doc.add_heading('Details', level=1)
 doc.add_paragraph('This report includes the essential metrics from the Da3em K6 stress test for each stage of the test.')
 
 # Save the document to a file
-doc.save('da3em_Stress_Test_Report_Combined.docx')
+doc.save('egg_Stress_Test_Report_Combined.docx')
